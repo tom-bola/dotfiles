@@ -1,0 +1,22 @@
+alias ga='git add'
+alias gap='git add -p'
+alias gc='git commit -v'
+alias gca='git commit -v --amend'
+alias gcm='git commit -v -m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gd='git diff'
+alias gdel='git branch -D'
+alias gdp='git diff -p'
+alias gds='git diff --staged'
+alias gf='git fetch --all --prune'
+alias gl="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias gls="gl --stat"
+alias gm="git merge"
+alias gpl='git pull'
+alias gplr='git pull --rebase'
+alias gpu='git push'
+alias gpuu='git push --set-upstream'
+alias gs='git status'
+alias gss='git status -s'
+alias gsu='git status -uno'
