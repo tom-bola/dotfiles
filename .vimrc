@@ -14,10 +14,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'qualiabyte/vim-colorstepper'
+Plug 'chriskempson/base16-vim'
 Plug 'zcesur/slimux'
 Plug 'scrooloose/nerdcommenter'
 Plug 'hdima/python-syntax'
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 " -----------------------------------------------------------------------------
@@ -69,7 +70,8 @@ set timeoutlen=500
 
 " Set color scheme
 let g:airline_theme='minimalist'
-colors hybrid_material
+"colors hybrid_material
+colors base16-ocean
 
 " set background=light
 " let macvim_skip_colorscheme=1
@@ -138,10 +140,10 @@ let python_highlight_all1=1
 " -----------------------------------------------------------------------------
 "  Mappings
 " -----------------------------------------------------------------------------
-
-" Quick write session with F2
-map <F2> :mksession! ~/.vim_session <cr>
-map <F3> :source ~/.vim_session <cr>
+"
+" Quick write session with F2, restore with F3
+map <F2> :mksession! ~/.vim_session<cr>
+map <F3> :source ~/.vim_session<cr>
 
 " Window splits
 noremap <leader>sw<left>  :topleft  vnew<cr>
@@ -164,6 +166,9 @@ vnoremap <S-k> :m '<-2<cr>gv=gv
 " Join lines
 nnoremap <leader>j :join<cr>
 vnoremap <leader>j :join<cr>
+
+" Open/close fold
+nnoremap <S-tab> za
 
 "Move between windows in the same tab
 map <C-h> <C-w>h
