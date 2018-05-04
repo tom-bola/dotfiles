@@ -51,7 +51,9 @@ set relativenumber
 
 " Search options
 set hls " Enable search highlighting
-set incsearch " Show next search match while typing
+nnoremap <cr> :nohlsearch<cr><cr>
+
+" set incsearch " Show next search match while typing
 
 " Highlight search results without changing the cursor position
 "nnoremap * *``
