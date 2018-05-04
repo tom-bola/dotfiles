@@ -72,6 +72,9 @@ set timeoutlen=500
 let g:airline_theme='minimalist'
 "colors hybrid_material
 colors base16-ocean
+if has("termguicolors") " see https://github.com/chriskempson/base16-vim/issues/110
+    set termguicolors
+endif
 
 " set background=light
 " let macvim_skip_colorscheme=1
