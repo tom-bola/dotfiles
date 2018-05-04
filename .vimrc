@@ -112,9 +112,9 @@ endif
 " -----------------------------------------------------------------------------
 
 " Slimux
-map <Leader>r :SlimuxREPLSendLine<cr>
-vmap <Leader>r :SlimuxREPLSendSelection<cr>
-map <Leader>B :SlimuxREPLSendBuffer<cr>
+nnoremap <Leader>r :SlimuxREPLSendLine<cr>
+vnoremap <Leader>r :SlimuxREPLSendSelection<cr>
+nnoremap <Leader>B :SlimuxREPLSendBuffer<cr>
 
 " ALE
 let g:ale_python_flake8_options='--ignore=E501'
@@ -176,14 +176,14 @@ vnoremap <leader>j :join<cr>
 nnoremap <S-tab> za
 
 "Move between windows in the same tab
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-left> <C-w>h
-map <C-down> <C-w>j
-map <C-up> <C-w>k
-map <C-right> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-left> <C-w>h
+noremap <C-down> <C-w>j
+noremap <C-up> <C-w>k
+noremap <C-right> <C-w>l
 
 " Open files in the same directory
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
@@ -193,17 +193,17 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Move between tabs
-map <leader>w gt
-map <leader>q gT
-map <leader>1 1gt
-map <leader>2 2gt
-map <leader>3 3gt
-map <leader>4 4gt
-map <leader>5 5gt
-map <leader>6 6gt
-map <leader>7 7gt
-map <leader>8 8gt
-map <leader>9 9ga
+noremap <leader>w gt
+noremap <leader>q gT
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9ga
 
 " save buffer
 noremap <c-z> :update<cr>
@@ -211,14 +211,14 @@ vnoremap <c-z> <esc>:update<cr>
 inoremap <c-z> <esc>:update<cr>
 
 " Quick-close file
-nmap <leader>e :close<cr>
-nmap <leader>E :close!<cr>
+nnoremap <leader>e :close<cr>
+nnoremap <leader>E :close!<cr>
 
 " Insert CWD in command line
 cnoremap %% <c-r>=fnameescape(expand('%:h')).'/'<cr>
 
 " Open vimrc in vertical split
-nmap <leader>V :80vsp ~/.vimrc<cr>
+nnoremap <leader>V :80vsp ~/.vimrc<cr>
 
 " -----------------------------------------------------------------------------
 "  Functions
