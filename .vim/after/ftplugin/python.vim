@@ -2,6 +2,8 @@
 set tw=120
 set cc=+1
 
+set foldmethod=indent
+
 hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 
 " Highlight overlength charcaters in cpp
