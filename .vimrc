@@ -19,17 +19,18 @@ Plug 'zcesur/slimux'
 Plug 'scrooloose/nerdcommenter'
 Plug 'hdima/python-syntax'
 "Plug 'flazz/vim-colorschemes'
+Plug 'wincent/pinnacle'
 call plug#end()
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 "  Global options
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 set hidden
 
 " Disable line wrapping (controlled per file type)
 set nowrap
-set tw=0
+set tw=100  " Default textwidth
 
 " Avoid that vim is resizing other windows when closing one
 set noea
@@ -37,9 +38,6 @@ set noea
 " Persistent undo
 set undofile
 set undodir=~/.vim/undodir
-
-set cc=+1
-"hi ColorColumn ctermbg=darkgrey guibg=darkgrey
 
 " Set mapleader
 let mapleader="\<space>"
@@ -50,8 +48,10 @@ set number
 set relativenumber
 
 " Search options
-set hls " Enable search highlighting
+set hls                                 " Enable search highlighting
 nnoremap <cr> :nohlsearch<cr><cr>
+set ignorecase
+set smartcase
 
 " set incsearch " Show next search match while typing
 
@@ -72,14 +72,13 @@ set timeoutlen=500
 
 " Set color scheme
 let g:airline_theme='minimalist'
-"colors hybrid_material
 colors base16-ocean
-if has("termguicolors") " see https://github.com/chriskempson/base16-vim/issues/110
-    set termguicolors
-endif
+set termguicolors  " see https://github.com/chriskempson/base16-vim/issues/110
 
-" set background=light
-" let macvim_skip_colorscheme=1
+" Use `ColorColumn` color for EndOfBuffer
+let eob_color=pinnacle#extract_bg('ColorColumn')
+let eob_highlight=pinnacle#highlight({'bg': eob_color, 'fg': eob_color})
+execute 'highlight EndOfBuffer ' . eob_highlight
 
 " Tab settings
 set expandtab
@@ -90,26 +89,9 @@ set softtabstop=2
 set splitbelow
 set splitright
 
-if has ("autocmd")
-  augroup vimrc
-    autocmd!
-
-    " Automatically source .vimrc on save
-    autocmd BufWritePost .vimrc source %
-
-    " Automatically remove trailing whitespace before saving
-    autocmd BufWritePre * %s/\s\+$//e
-
-    " Highlight current line in current window
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-
-  augroup END
-endif
-
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 "  Plugin settings
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Slimux
 nnoremap <Leader>r :SlimuxREPLSendLine<cr>
@@ -142,10 +124,10 @@ nnoremap <silent> <leader>g :YcmCompleter GoTo<cr>
 " python-syntax
 let python_highlight_all1=1
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 "  Mappings
-" -----------------------------------------------------------------------------
-"
+" ------------------------------------------------------------------------------
+
 " Quick write session with F2, restore with F3
 map <F2> :mksession! ~/.vim_session<cr>
 map <F3> :source ~/.vim_session<cr>
@@ -220,9 +202,9 @@ cnoremap %% <c-r>=fnameescape(expand('%:h')).'/'<cr>
 " Open vimrc in vertical split
 nnoremap <leader>V :80vsp ~/.vimrc<cr>
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 "  Functions
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " Diff the buffer against the last saved file
 function! s:DiffWithSaved()
@@ -248,4 +230,29 @@ func! s:ToggleBreakpoint()
 endf
 
 nnoremap <F6> :call <SID>ToggleBreakpoint()<cr>
+
+" ------------------------------------------------------------------------------
+"  Autocomds
+" ------------------------------------------------------------------------------
+
+if has ("autocmd")
+  augroup vimrc
+    autocmd!
+
+    " Automatically source .vimrc on save
+    autocmd BufWritePost .vimrc source %
+
+    " Automatically remove trailing whitespace before saving
+    autocmd BufWritePre * %s/\s\+$//e
+
+    " Highlight current line in current window
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+
+    " Cursorline in focused window
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(1, 254), ',+')
+    autocmd FocusLost,WinLeave * let &l:colorcolumn=join(range(1,255), ',')
+
+  augroup END
+endif
 
