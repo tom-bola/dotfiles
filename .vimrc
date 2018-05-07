@@ -28,12 +28,19 @@ call plug#end()
 
 set hidden
 
-" Disable line wrapping (controlled per file type)
-set nowrap
+" Wrap with indent
+set wrap
+set breakindent
+set breakindentopt=shift:2
+
+" Default textwidth
 set tw=100  " Default textwidth
 
 " Avoid that vim is resizing other windows when closing one
 set noea
+
+" Do not update the screen during macro playback
+set lazyredraw
 
 " Persistent undo
 set undofile
@@ -56,6 +63,7 @@ set smartcase
 " Highlight search results without changing the cursor position
 nnoremap * :let @/='\<<C-r><C-w>\>' \| :hlsearch<cr>
 
+" Replace word under cursow
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Use decimal number format, always
@@ -85,6 +93,16 @@ set softtabstop=2
 " Open splits to the right and below
 set splitbelow
 set splitright
+
+" Whitespace settings
+set list
+set listchars=nbsp:⦸
+set listchars+=tab:▷┅
+set listchars+=trail:•
+set listchars+=extends:»
+set listchars+=precedes:«
+
+set nojoinspaces
 
 " ------------------------------------------------------------------------------
 "  Plugin settings
@@ -153,6 +171,12 @@ vnoremap <leader>j :join<cr>
 
 " Open/close fold
 nnoremap <S-tab> za
+
+" Avoid unintentionally entering Ex mode
+nmap Q q
+
+" Yank to the end of the line
+noremap Y y$
 
 "Move between windows in the same tab
 noremap <C-h> <C-w>h
