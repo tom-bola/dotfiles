@@ -269,6 +269,12 @@ if has ("autocmd")
     autocmd BufEnter,FocusGained,VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(1, 254), ',+')
     autocmd FocusLost,WinLeave * let &l:colorcolumn=join(range(1,255), ',')
 
+    " Automatically check for filesystem changes outside vim
+    autocmd BufEnter,FocusGained * :silent! !
+
+    " Autowrite
+    autocmd FocusLost,WinLeave * :silent! noautocmd update
+
   augroup END
 endif
 
