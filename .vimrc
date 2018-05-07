@@ -48,18 +48,15 @@ set number
 set relativenumber
 
 " Search options
-set hls                                 " Enable search highlighting
-nnoremap <cr> :nohlsearch<cr><cr>
+set hlsearch
+nnoremap <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
 set ignorecase
 set smartcase
 
-" set incsearch " Show next search match while typing
-
 " Highlight search results without changing the cursor position
-"nnoremap * *``
+nnoremap * :let @/='\<<C-r><C-w>\>' \| :hlsearch<cr>
 
-" Alternative. Works, but moves cursor to beginning of line
-"nmap <silent> * "syiw<Esc>: let @/ = @s<cr>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Use decimal number format, always
 set nrformats=
@@ -186,11 +183,6 @@ noremap <leader>6 6gt
 noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9ga
-
-" save buffer
-noremap <c-z> :update<cr>
-vnoremap <c-z> <esc>:update<cr>
-inoremap <c-z> <esc>:update<cr>
 
 " Quick-close file
 nnoremap <leader>e :close<cr>
