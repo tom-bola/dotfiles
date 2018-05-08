@@ -1,6 +1,4 @@
 set nocompatible
-filetype plugin indent on
-syntax on
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -21,6 +19,9 @@ Plug 'hdima/python-syntax'
 "Plug 'flazz/vim-colorschemes'
 Plug 'wincent/pinnacle'
 call plug#end()
+
+filetype plugin indent on
+syntax on
 
 " ------------------------------------------------------------------------------
 "  Global options
