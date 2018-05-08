@@ -41,8 +41,8 @@ syntax on
 
 set hidden
 
-" Wrap with indent
-set wrap
+" Wrap settings
+set nowrap
 set breakindent
 set breakindentopt=shift:2
 
