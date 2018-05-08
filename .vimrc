@@ -267,30 +267,28 @@ nnoremap <F6> :call <SID>ToggleBreakpoint()<cr>
 "  Autocomds
 " ------------------------------------------------------------------------------
 
-if has ("autocmd")
-  augroup vimrc
-    autocmd!
+augroup vimrc
+  autocmd!
 
-    " Automatically source .vimrc on save
-    autocmd BufWritePost .vimrc source %
+  " Automatically source .vimrc on save
+  autocmd BufWritePost .vimrc source %
 
-    " Automatically remove trailing whitespace before saving
-    autocmd BufWritePre * %s/\s\+$//e
+  " Automatically remove trailing whitespace before saving
+  autocmd BufWritePre * %s/\s\+$//e
 
-    " Highlight current line in current window
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
+  " Highlight current line in current window
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 
-    " Cursorline in focused window
-    autocmd BufEnter,FocusGained,VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(1, 254), ',+')
-    autocmd FocusLost,WinLeave * let &l:colorcolumn=join(range(1,255), ',')
+  " Cursorline in focused window
+  autocmd BufEnter,FocusGained,VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(1, 254), ',+')
+  autocmd FocusLost,WinLeave * let &l:colorcolumn=join(range(1,255), ',')
 
-    " Automatically check for filesystem changes outside vim
-    autocmd BufEnter,FocusGained * :silent! !
+  " Automatically check for filesystem changes outside vim
+  autocmd BufEnter,FocusGained * :silent! !
 
-    " Autowrite
-    autocmd FocusLost,WinLeave * :silent! noautocmd update
+  " Autowrite
+  autocmd FocusLost,WinLeave * :silent! noautocmd update
 
-  augroup END
-endif
+augroup END
 
