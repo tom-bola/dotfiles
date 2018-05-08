@@ -1,24 +1,36 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-unimpaired'
-Plug 'w0rp/ale'
-"Plug 'python-mode/python-mode'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'qualiabyte/vim-colorstepper'
-Plug 'chriskempson/base16-vim'
-Plug 'zcesur/slimux'
-Plug 'scrooloose/nerdcommenter'
-Plug 'hdima/python-syntax'
-"Plug 'flazz/vim-colorschemes'
+Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 Plug 'wincent/pinnacle'
+Plug 'chriskempson/base16-vim'
+Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
+Plug 'airblade/vim-gitgutter',    {'on': []}
+Plug 'hdima/python-syntax',       {'on': []}
+Plug 'scrooloose/nerdcommenter',  {'on': []}
+Plug 'tpope/vim-fugitive',        {'on': []}
+Plug 'tpope/vim-unimpaired',      {'on': []}
+Plug 'w0rp/ale',                  {'on': []}
+Plug 'zcesur/slimux',             {'on': []}
+"Plug 'python-mode/python-mode'
+"Plug 'qualiabyte/vim-colorstepper'
+"Plug 'flazz/vim-colorschemes'
 call plug#end()
+
+augroup DeferredPlugins
+    autocmd!
+    autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe')
+    autocmd CursorHold,CursorHoldI * call plug#load('ale')
+    autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
+    autocmd CursorHold,CursorHoldI * call plug#load('python-syntax')
+    autocmd CursorHold,CursorHoldI * call plug#load('slimux')
+    autocmd CursorHold,CursorHoldI * call plug#load('vim-fugitive')
+    autocmd CursorHold,CursorHoldI * call plug#load('vim-gitgutter')
+    autocmd CursorHold,CursorHoldI * call plug#load('vim-unimpaired')
+augroup end
 
 filetype plugin indent on
 syntax on
@@ -75,6 +87,9 @@ set mouse=a
 
 " Make vim more responsive (default 1000)
 set timeoutlen=500
+
+" Time until CursorHold/CursorHoldI events
+set updatetime=2000
 
 " Set color scheme
 let g:airline_theme='minimalist'
