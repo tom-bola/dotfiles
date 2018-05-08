@@ -61,7 +61,7 @@ set ignorecase
 set smartcase
 
 " Highlight search results without changing the cursor position
-nnoremap * :let @/='\<<C-r><C-w>\>' \| :hlsearch<cr>
+nnoremap * :let @/='\<<C-r><C-w>\>' \| :set hlsearch<cr>
 
 " Replace word under cursow
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
