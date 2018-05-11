@@ -24,3 +24,5 @@ alias gs='git status'
 alias gss='git status -s'
 alias gsu='git status -uno'
 alias gsubu='git submodule update --recursive'
+
+alias vim='nvim'
