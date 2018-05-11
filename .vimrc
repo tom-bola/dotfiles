@@ -179,8 +179,6 @@ noremap <leader>s<up>     :leftabove  new<cr>
 noremap <leader>s<down>   :rightbelow new<cr>
 
 " Move lines up or down
-nnoremap <S-j> :m+1<cr>==
-nnoremap <S-k> :m-2<cr>==
 vnoremap <S-j> :m '>+1<cr>gv=gv
 vnoremap <S-k> :m '<-2<cr>gv=gv
 
