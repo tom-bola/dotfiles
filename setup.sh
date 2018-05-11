@@ -5,6 +5,7 @@ ln -s ${DIR}/.tmux ~
 ln -s ${DIR}/.tmux.conf ~
 ln -s ${DIR}/.bash_aliases ~
 ln -s ${DIR}/.zshrc ~
+ln -s ${DIR}/.zsh ~
 
 mkdir -p ~/.config
 ln -s ${DIR}/.config/nvim ~/.config
