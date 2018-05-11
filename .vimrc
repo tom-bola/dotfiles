@@ -46,6 +46,9 @@ set nowrap
 set breakindent
 set breakindentopt=shift:2
 
+" Default fold level
+set foldlevel=2
+
 " Default textwidth
 set tw=100  " Default textwidth
 
