@@ -1,3 +1,4 @@
+#!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[1]}" )" && pwd )"
 ln -s ${DIR}/.vim ~
 ln -s ${DIR}/.vimrc ~
