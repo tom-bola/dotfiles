@@ -91,7 +91,12 @@ set updatetime=2000
 " Set color scheme
 let g:airline_theme='minimalist'
 colors base16-ocean
-"set termguicolors  " see https://github.com/chriskempson/base16-vim/issues/110
+if has('unix')
+  " Workaround for wrong/green colors on Linux. However, this messes up the background color. See
+  " - https://github.com/chriskempson/base16-vim/issues/110
+  " - https://github.com/chriskempson/base16-vim#green-line-numbers
+  set termguicolors
+endif
 
 " Use `ColorColumn` color for EndOfBuffer
 let eob_color=pinnacle#extract_bg('ColorColumn')
