@@ -39,6 +39,7 @@ syntax on
 "  Global options
 " ------------------------------------------------------------------------------
 
+" Allow modified buffers in the background
 set hidden
 
 " Wrap settings
@@ -53,7 +54,7 @@ set foldlevel=2
 set tw=100  " Default textwidth
 
 " Avoid that vim is resizing other windows when closing one
-set noea
+set noequalalways
 
 " Do not update the screen during macro playback
 set lazyredraw
@@ -72,15 +73,8 @@ set relativenumber
 
 " Search options
 set hlsearch
-nnoremap <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
 set ignorecase
 set smartcase
-
-" Highlight search results without changing the cursor position
-nnoremap * :let @/='\<<C-r><C-w>\>' \| :set hlsearch<cr>
-
-" Replace word under cursow
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Use decimal number format, always
 set nrformats=
@@ -162,29 +156,34 @@ let python_highlight_all1=1
 "  Mappings
 " ------------------------------------------------------------------------------
 
+" Highlight search results without changing the cursor position
+nnoremap <silent> * :let @/='\<<C-r><C-w>\>' \| :set hlsearch<cr>
+
+" Disabled search highlighting
+nnoremap <silent> <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
+
+" Replace word under cursow
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
 " Quick write session with F2, restore with F3
 map <F2> :mksession! ~/.vim_session<cr>
 map <F3> :source ~/.vim_session<cr>
 
 " Window splits
-noremap <leader>sw<left>  :topleft  vnew<cr>
-noremap <leader>sw<right> :botright vnew<cr>
-noremap <leader>sw<up>    :topleft  new<cr>
-noremap <leader>sw<down>  :botright new<cr>
+noremap <silent> <leader>sw<left>  :topleft  vnew<cr>
+noremap <silent> <leader>sw<right> :botright vnew<cr>
+noremap <silent> <leader>sw<up>    :topleft  new<cr>
+noremap <silent> <leader>sw<down>  :botright new<cr>
 
 " Buffer splits
-noremap <leader>s<left>   :leftabove  vnew<cr>
-noremap <leader>s<right>  :rightbelow vnew<cr>
-noremap <leader>s<up>     :leftabove  new<cr>
-noremap <leader>s<down>   :rightbelow new<cr>
+noremap <silent> <leader>s<left>   :leftabove  vnew<cr>
+noremap <silent> <leader>s<right>  :rightbelow vnew<cr>
+noremap <silent> <leader>s<up>     :leftabove  new<cr>
+noremap <silent> <leader>s<down>   :rightbelow new<cr>
 
 " Move lines up or down
 vnoremap <S-j> :m '>+1<cr>gv=gv
 vnoremap <S-k> :m '<-2<cr>gv=gv
-
-" Join lines
-nnoremap <leader>j :join<cr>
-vnoremap <leader>j :join<cr>
 
 " Open/close fold
 nnoremap <S-tab> za
