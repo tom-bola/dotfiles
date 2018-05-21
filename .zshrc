@@ -1,8 +1,31 @@
 source ~/.bash_aliases
 
+# --------------------------------------------------------------------------------------------------
 # -- Environment
+# --------------------------------------------------------------------------------------------------
 export KEYTIMEOUT=1                                         # Reduce latency when changing mode
 export TERM="xterm-256color"                                # Needed for proper color support
+
+
+# --------------------------------------------------------------------------------------------------
+# -- Settings
+# - http://zsh.sourceforge.net/Guide/zshguide02.html
+# --------------------------------------------------------------------------------------------------
+setopt NO_NOMATCH
+setopt LOCAL_OPTIONS
+setopt PROMPT_SUBST
+setopt NO_BEEP
+setopt AUTOCD
+
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zhist
+
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
 
 # --------------------------------------------------------------------------------------------------
 # -- vi bindings
@@ -39,8 +62,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 # --------------------------------------------------------------------------------------------------
 # -- Prompt
 # --------------------------------------------------------------------------------------------------
-
-setopt PROMPT_SUBST
 
 autoload -U colors
 colors
