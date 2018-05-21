@@ -6,7 +6,6 @@ source ~/.bash_aliases
 export KEYTIMEOUT=1                                         # Reduce latency when changing mode
 export TERM="xterm-256color"                                # Needed for proper color support
 
-
 # --------------------------------------------------------------------------------------------------
 # -- Settings
 # - http://zsh.sourceforge.net/Guide/zshguide02.html
@@ -35,9 +34,11 @@ setopt HIST_REDUCE_BLANKS
 
 bindkey -v
 
-# Better searching in command mode
-bindkey -M vicmd '?' history-incremental-search-backward
-bindkey -M vicmd '/' history-incremental-search-forward
+# History seraching
+bindkey -M vicmd '^R' history-incremental-pattern-search-backward
+bindkey -M vicmd '^F' history-incremental-pattern-search-forward
+bindkey -M viins '^R' history-incremental-pattern-search-backward
+bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 # Beginning search with arrow keys
 bindkey "^[OA" up-line-or-search
