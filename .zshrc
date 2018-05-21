@@ -65,20 +65,25 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 autoload -U colors
 colors
-#
+
 # Show [NORMAL] indicator when in vi mode
 function vi_mode_prompt() {
-  VIM_PROMPT="%{$fg_bold[blue]%} [% NORMAL]% %{$reset_color%}"
-  echo "${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $RPROMPT"
+  VIM_PROMPT="%{$fg_bold[blue]%} [% NORMAL]% %{$reset_color%} "
+  echo "${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+}
+
+function rprompt() {
+  echo "$(vi_mode_prompt)%~"
 }
 
 function zle-line-init zle-keymap-select {
-  RPS1='$(vi_mode_prompt)'
+  RPS1='$(rprompt)'
   zle reset-prompt
 }
+
 zle -N zle-line-init
 zle -N zle-keymap-select
-export RPS1='$(vi_mode_prompt)'
+export RPS1='$(rprompt)'
 
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
 #autoload -Uz vcs_info
@@ -124,8 +129,6 @@ export RPS1='$(vi_mode_prompt)'
   #fi
 #}
 
-RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
-
 # Anonymous function to avoid leaking NBSP variable.
 function () {
   if [[ -n "$TMUX" ]]; then
@@ -151,5 +154,6 @@ function () {
   #fi
 }
 
-##export RPROMPT=$RPROMPT_BASE
+#RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
+#export RPROMPT=$RPROMPT_BASE
 #export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
