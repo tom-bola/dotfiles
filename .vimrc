@@ -91,7 +91,7 @@ set updatetime=2000
 " Set color scheme
 let g:airline_theme='minimalist'
 colors base16-ocean
-if has('unix')
+if has('unix') && has('termguicolors')
   " Workaround for wrong/green colors on Linux. However, this messes up the background color. See
   " - https://github.com/chriskempson/base16-vim/issues/110
   " - https://github.com/chriskempson/base16-vim#green-line-numbers
