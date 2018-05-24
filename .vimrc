@@ -75,6 +75,7 @@ set relativenumber
 set hlsearch
 set ignorecase
 set smartcase
+set inccommand=split
 
 " Use decimal number format, always
 set nrformats=
@@ -127,9 +128,8 @@ set nojoinspaces
 " ------------------------------------------------------------------------------
 
 " Slimux
-nnoremap <Leader>r :SlimuxREPLSendLine<cr>
-vnoremap <Leader>r :SlimuxREPLSendSelection<cr>
-nnoremap <Leader>B :SlimuxREPLSendBuffer<cr>
+vnoremap <leader>r :SlimuxREPLSendSelection<cr>
+nnoremap <leader>B :SlimuxREPLSendBuffer<cr>
 
 " ALE
 let g:ale_python_flake8_options='--ignore=E501'
@@ -168,7 +168,7 @@ nnoremap <silent> * :let @/='\<<C-r><C-w>\>' \| :set hlsearch<cr>
 nnoremap <silent> <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
 
 " Replace word under cursow
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <leader>r :%s/\<<C-r><C-w>\>/
 
 " Quick write session with F2, restore with F3
 map <F2> :mksession! ~/.vim_session<cr>
