@@ -7,6 +7,7 @@ Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'wincent/pinnacle'
 Plug 'chriskempson/base16-vim'
+Plug 'machakann/vim-highlightedyank'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
 Plug 'airblade/vim-gitgutter',    {'on': []}
 Plug 'hdima/python-syntax',       {'on': []}
@@ -156,6 +157,9 @@ nnoremap <silent> <leader>g :YcmCompleter GoTo<cr>
 
 " python-syntax
 let python_highlight_all1=1
+
+" highlighted-yank
+let g:highlightedyank_highlight_duration=400
 
 " ------------------------------------------------------------------------------
 "  Mappings
