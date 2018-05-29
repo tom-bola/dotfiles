@@ -140,6 +140,7 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 
 " Slimux
+nnoremap <leader>r :SlimuxREPLSendLine<cr>
 vnoremap <leader>r :SlimuxREPLSendSelection<cr>
 nnoremap <leader>B :SlimuxREPLSendBuffer<cr>
 
@@ -183,23 +184,23 @@ nnoremap <silent> * :let @/='\<<C-r><C-w>\>' \| :set hlsearch<cr>
 nnoremap <silent> <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
 
 " Replace word under cursow
-nnoremap <leader>r :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/
 
 " Quick write session with F2, restore with F3
 map <F2> :mksession! .vim_session<cr>
 map <F3> :source .vim_session<cr>
 
 " Window splits
-noremap <silent> <leader>sw<left>  :topleft  vnew<cr>
-noremap <silent> <leader>sw<right> :botright vnew<cr>
-noremap <silent> <leader>sw<up>    :topleft  new<cr>
-noremap <silent> <leader>sw<down>  :botright new<cr>
+noremap <silent> <leader>W<left>  :topleft  vnew<cr>
+noremap <silent> <leader>W<right> :botright vnew<cr>
+noremap <silent> <leader>W<up>    :topleft  new<cr>
+noremap <silent> <leader>W<down>  :botright new<cr>
 
 " Buffer splits
-noremap <silent> <leader>s<left>   :leftabove  vnew<cr>
-noremap <silent> <leader>s<right>  :rightbelow vnew<cr>
-noremap <silent> <leader>s<up>     :leftabove  new<cr>
-noremap <silent> <leader>s<down>   :rightbelow new<cr>
+noremap <silent> <leader>w<left>   :leftabove  vnew<cr>
+noremap <silent> <leader>w<right>  :rightbelow vnew<cr>
+noremap <silent> <leader>w<up>     :leftabove  new<cr>
+noremap <silent> <leader>w<down>   :rightbelow new<cr>
 
 " Move lines up or down
 vnoremap <S-j> :m '>+1<cr>gv=gv
