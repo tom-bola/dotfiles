@@ -186,8 +186,8 @@ nnoremap <silent> <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
 nnoremap <leader>r :%s/\<<C-r><C-w>\>/
 
 " Quick write session with F2, restore with F3
-map <F2> :mksession! ~/.vim_session<cr>
-map <F3> :source ~/.vim_session<cr>
+map <F2> :mksession! .vim_session<cr>
+map <F3> :source .vim_session<cr>
 
 " Window splits
 noremap <silent> <leader>sw<left>  :topleft  vnew<cr>
