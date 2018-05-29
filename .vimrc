@@ -8,6 +8,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'wincent/pinnacle'
 Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
 Plug 'airblade/vim-gitgutter',    {'on': []}
 Plug 'hdima/python-syntax',       {'on': []}
@@ -127,6 +129,15 @@ set nojoinspaces
 " ------------------------------------------------------------------------------
 "  Plugin settings
 " ------------------------------------------------------------------------------
+
+"Ultisnips
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+"https://github.com/SirVer/ultisnips/issues/711
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+
 
 " Slimux
 vnoremap <leader>r :SlimuxREPLSendSelection<cr>
