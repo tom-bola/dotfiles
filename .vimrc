@@ -87,7 +87,7 @@ set nrformats=
 set mouse=a
 
 " Make vim more responsive (default 1000)
-set timeoutlen=500
+set timeoutlen=750
 
 " Time until CursorHold/CursorHoldI events
 set updatetime=2000
