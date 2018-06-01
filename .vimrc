@@ -9,13 +9,14 @@ Plug 'wincent/pinnacle'
 Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'SirVer/ultisnips'
+Plug 'tpope/vim-unimpaired',
+Plug 'tpope/vim-surround',
 "Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
 Plug 'airblade/vim-gitgutter',    {'on': []}
 Plug 'hdima/python-syntax',       {'on': []}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
 Plug 'tpope/vim-fugitive',        {'on': []}
-Plug 'tpope/vim-unimpaired',      {'on': []}
 Plug 'w0rp/ale',                  {'on': []}
 Plug 'zcesur/slimux',             {'on': []}
 "Plug 'python-mode/python-mode'
@@ -32,7 +33,6 @@ augroup DeferredPlugins
     autocmd CursorHold,CursorHoldI * call plug#load('slimux')
     autocmd CursorHold,CursorHoldI * call plug#load('vim-fugitive')
     autocmd CursorHold,CursorHoldI * call plug#load('vim-gitgutter')
-    autocmd CursorHold,CursorHoldI * call plug#load('vim-unimpaired')
 augroup end
 
 filetype plugin indent on
