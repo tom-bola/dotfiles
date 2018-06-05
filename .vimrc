@@ -164,6 +164,7 @@ let g:ycm_max_num_candidates=20
 let g:ycm_auto_trigger=1
 let g:ycm_complete_in_comments=0
 let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_always_populate_location_list = 1
 nnoremap <silent> <leader>d :YcmCompleter GetDoc<cr>
 nnoremap <silent> <leader>g :YcmCompleter GoTo<cr>
 
