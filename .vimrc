@@ -306,8 +306,8 @@ augroup vimrc
   autocmd BufWritePre * %s/\s\+$//e
 
   " Highlight current line in current window
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
 
   " Cursorline in focused window
   autocmd BufEnter,FocusGained,VimEnter,WinEnter * let &l:colorcolumn='+' . join(range(1, 254), ',+')
