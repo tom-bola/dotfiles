@@ -45,6 +45,9 @@ syntax on
 " Allow modified buffers in the background
 set hidden
 
+" Use the clipboard register '*' by defaule
+set clipboard=unnamed
+
 " Wrap settings
 set nowrap
 set breakindent
