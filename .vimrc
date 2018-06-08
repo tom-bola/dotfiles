@@ -249,6 +249,10 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9ga
 
+" Use Tab to navigate buffers (in normal mode tab doesn't do anything)
+nnoremap <Tab> :bnext!<CR>
+nnoremap <S-Tab> :bprev!<CR><Paste>
+
 " Quick-close file
 nnoremap <leader>e :close<cr>
 nnoremap <leader>E :close!<cr>
