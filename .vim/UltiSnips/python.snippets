@@ -29,7 +29,7 @@ endsnippet
 
 snippet args "Argument parsing boiler plate" b
 parser = argparse.ArgumentParser()
-${1}
+parser.add_argument('${1:_name_}'${2})
 args = parser.parse_args()
 endsnippet
 
