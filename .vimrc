@@ -110,9 +110,6 @@ let eob_color=pinnacle#extract_bg('ColorColumn')
 let eob_highlight=pinnacle#highlight({'bg': eob_color, 'fg': eob_color})
 execute 'highlight EndOfBuffer ' . eob_highlight
 
-" Disable highlighting of matching parens, always find this confusing
-:NoMatchParen
-
 " Tab settings
 set expandtab
 set shiftwidth=2
