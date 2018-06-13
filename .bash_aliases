@@ -26,3 +26,5 @@ alias gsu='git status -uno'
 alias gsubu='git submodule update --recursive'
 
 alias vim='nvim'
+alias ls='ls -G'  # enable color
+alias ll='ls -ahl'
