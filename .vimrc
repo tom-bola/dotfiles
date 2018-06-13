@@ -254,8 +254,7 @@ nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR><Paste>
 
 " Quick-close file
-nnoremap <leader>e :close<cr>
-nnoremap <leader>E :close!<cr>
+nnoremap <leader>e :bdelete<cr>
 
 " Insert CWD in command line
 cnoremap %% <c-r>=fnameescape(expand('%:h')).'/'<cr>
