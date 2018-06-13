@@ -13,12 +13,12 @@ Plug 'tpope/vim-unimpaired',
 Plug 'tpope/vim-surround',
 "Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
-Plug 'airblade/vim-gitgutter',    {'on': []}
-Plug 'hdima/python-syntax',       {'on': []}
-Plug 'scrooloose/nerdcommenter',  {'on': []}
-Plug 'tpope/vim-fugitive',        {'on': []}
 Plug 'w0rp/ale',                  {'on': []}
+Plug 'scrooloose/nerdcommenter',  {'on': []}
+Plug 'hdima/python-syntax',       {'on': []}
 Plug 'zcesur/slimux',             {'on': []}
+Plug 'tpope/vim-fugitive',        {'on': []}
+Plug 'airblade/vim-gitgutter',    {'on': []}
 "Plug 'python-mode/python-mode'
 "Plug 'qualiabyte/vim-colorstepper'
 "Plug 'flazz/vim-colorschemes'
