@@ -236,19 +236,6 @@ cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-" Move between tabs
-noremap <leader>w gt
-noremap <leader>q gT
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9ga
-
 " Use Tab to navigate buffers (in normal mode tab doesn't do anything)
 nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR><Paste>
