@@ -237,8 +237,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Use Tab to navigate buffers (in normal mode tab doesn't do anything)
-nnoremap <Tab> :bnext!<CR>
-nnoremap <S-Tab> :bprev!<CR><Paste>
+nnoremap <silent> <Tab> :bnext!<CR>
+nnoremap <silent> <S-Tab> :bprev!<CR><Paste>
 
 " Quick-close file
 nnoremap <leader>e :bdelete<cr>
