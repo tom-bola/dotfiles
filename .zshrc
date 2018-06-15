@@ -46,8 +46,9 @@ bindkey "^[OB" down-line-or-search
 bindkey -M vicmd "k" up-line-or-search
 bindkey -M vicmd "j" down-line-or-search
 
-# Backspace to delete a character
+# Bind Backspace and Delete to delete a character
 bindkey "^?" backward-delete-char
+bindkey '^[[3~' delete-char
 
 # --------------------------------------------------------------------------------------------------
 # -- completions
