@@ -26,5 +26,5 @@ alias gsu='git status -uno'
 alias gsubu='git submodule update --recursive'
 
 alias vim='nvim'
-alias ls='ls -G'  # enable color
+[[ `uname` == 'Linux' ]] && alias ls='ls --color=auto' || alias ls='ls -G'  # Enable color
 alias ll='ls -ahl'
