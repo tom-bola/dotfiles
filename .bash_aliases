@@ -24,6 +24,8 @@ alias gs='git status'
 alias gss='git status -s'
 alias gsu='git status -uno'
 alias gsubu='git submodule update --recursive'
+alias gstash='git stash'
+alias gpop='git stash pop'
 
 alias vim='nvim'
 [[ `uname` == 'Linux' ]] && alias ls='ls --color=auto' || alias ls='ls -G'  # Enable color
