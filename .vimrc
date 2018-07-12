@@ -156,7 +156,7 @@ nmap ]w <Plug>(ale_next)
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>b :BLines<cr>
 nnoremap <silent> <leader>l :Lines<cr>
-nnoremap <silent> <leader>h :Helptags<cr>
+nnoremap <silent> <leader>h :History<cr>
 nnoremap <silent> <leader>c :Commits<cr>
 nnoremap <silent> <leader>; :Buffers<cr>
 nnoremap <silent> <leader>a :Ag<cr>
