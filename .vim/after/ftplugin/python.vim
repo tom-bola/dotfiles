@@ -1,3 +1,3 @@
-set tw=100
-set nowrap
-set foldmethod=indent
+setlocal tw=100
+setlocal nowrap
+setlocal foldmethod=indent
