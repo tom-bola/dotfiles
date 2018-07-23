@@ -1,2 +1,2 @@
-set tw=100
-set nowrap
+setlocal tw=100
+setlocal nowrap
