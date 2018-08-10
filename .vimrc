@@ -153,6 +153,8 @@ nmap [w <Plug>(ale_previous)
 nmap ]w <Plug>(ale_next)
 
 " fzf
+" See https://github.com/junegunn/fzf.vim#global-options
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>b :BLines<cr>
 nnoremap <silent> <leader>l :Lines<cr>
