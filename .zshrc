@@ -4,7 +4,6 @@ source ~/.bash_aliases
 # -- Environment
 # --------------------------------------------------------------------------------------------------
 export KEYTIMEOUT=1                                         # Reduce latency when changing mode
-export TERM="xterm-256color"                                # Needed for proper color support
 
 # --------------------------------------------------------------------------------------------------
 # -- Settings
@@ -80,14 +79,12 @@ function rprompt() {
 
 function zle-line-init zle-keymap-select {
   RPS1='$(rprompt)'
-  if [ "$TERM" = "xterm-256color" ]; then
-      if [ $KEYMAP = vicmd ]; then
-          # the command mode for vi
-          echo -ne "\e[2 q"
-      else
-          # the insert mode for vi
-          echo -ne "\e[4 q"
-      fi
+  if [ $KEYMAP = vicmd ]; then
+      # the command mode for vi
+      echo -ne "\e[2 q"
+  else
+      # the insert mode for vi
+      echo -ne "\e[4 q"
   fi
   zle reset-prompt
 }
