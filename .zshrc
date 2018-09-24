@@ -58,7 +58,14 @@ autoload -U compinit && compinit
 [[ -d /usr/local/share/zsh-completions ]] && fpath=(/usr/local/share/zsh-completions $fpath)
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
+case $TERM in
+  xterm*|rxvt*)
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
+    ;;
+  *)
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+    ;;
+esac
 
 # --------------------------------------------------------------------------------------------------
 # -- Prompt
