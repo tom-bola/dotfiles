@@ -5,6 +5,8 @@ source ~/.bash_aliases
 # --------------------------------------------------------------------------------------------------
 export KEYTIMEOUT=1                                         # Reduce latency when changing mode
 
+[[ -d "$HOME/miniconda3" ]] && export PATH="$HOME/miniconda3/bin:$PATH"
+
 # --------------------------------------------------------------------------------------------------
 # -- Settings
 # - http://zsh.sourceforge.net/Guide/zshguide02.html
