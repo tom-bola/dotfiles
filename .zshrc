@@ -1,4 +1,14 @@
-source ~/.bash_aliases
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+# --------------------------------------------------------------------------------------------------
+# -- Preferred editor
+# --------------------------------------------------------------------------------------------------
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  # pip install neovim-remote
+  export VISUAL="nvr -cc tabedit --remote-wait +'set bufhidden=wipe'"
+else
+  export VISUAL="nvim"
+fi
 
 # --------------------------------------------------------------------------------------------------
 # -- Environment
