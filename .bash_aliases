@@ -16,16 +16,16 @@ alias gls="gl --stat"
 alias gm="git merge"
 alias gpl='git pull'
 alias gplr='git pull --rebase'
+alias gpop='git stash pop'
 alias gpu='git push'
 alias gpuu='git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`'
 alias gr='git reset'
 alias grh='git reset HEAD'
 alias gs='git status'
 alias gss='git status -s'
+alias gstash='git stash'
 alias gsu='git status -uno'
 alias gsubu='git submodule update --recursive'
-alias gstash='git stash'
-alias gpop='git stash pop'
 
 alias vim='nvim'
 [[ `uname` == 'Linux' ]] && alias ls='ls --color=auto' || alias ls='ls -G'  # Enable color
