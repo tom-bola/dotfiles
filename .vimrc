@@ -157,12 +157,16 @@ nmap ]w <Plug>(ale_next)
 " See https://github.com/junegunn/fzf.vim#global-options
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>b :BLines<cr>
 nnoremap <silent> <leader>l :Lines<cr>
 nnoremap <silent> <leader>, :History<cr>
 nnoremap <silent> <leader>c :Commits<cr>
 nnoremap <silent> <leader>; :Buffers<cr>
 nnoremap <silent> <leader>a :Ag<cr>
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
 
 " YCM
 let g:ycm_python_binary_path='python'
