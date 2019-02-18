@@ -231,10 +231,6 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-noremap <C-left> <C-w>h
-noremap <C-down> <C-w>j
-noremap <C-up> <C-w>k
-noremap <C-right> <C-w>l
 
 " Open files in the same directory
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
