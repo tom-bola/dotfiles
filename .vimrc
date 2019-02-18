@@ -256,6 +256,10 @@ cnoremap %% <c-r>=fnameescape(expand('%:h')).'/'<cr>
 " Open vimrc in vertical split
 nnoremap <leader>V :80vsp ~/.vimrc<cr>
 
+" Leave terminal mode with ESC
+tnoremap <Esc> <C-\><C-N>
+tnoremap <C-v><Esc> <Esc>
+
 " ------------------------------------------------------------------------------
 "  Functions
 " ------------------------------------------------------------------------------
@@ -312,7 +316,8 @@ augroup vimrc
   " Autowrite
   autocmd FocusLost,WinLeave * :silent! noautocmd update
 
-  autocmd! FileType fzf
+  " fzf
+  autocmd  FileType fzf tnoremap <buffer> <Esc> <Esc>
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
