@@ -45,7 +45,7 @@ syntax on
 " Allow modified buffers in the background
 set hidden
 
-" Use the clipboard register '*' by defaule
+" Use the clipboard register '*' by default
 set clipboard=unnamed
 
 " Wrap settings
@@ -95,7 +95,7 @@ set timeoutlen=750
 " Time until CursorHold/CursorHoldI events
 set updatetime=2000
 
-" Set color scheme
+" Color scheme
 let g:airline_theme='minimalist'
 colors base16-tomorrow-night
 if has('unix') && has('termguicolors')
@@ -190,7 +190,7 @@ nnoremap <silent> * :let @/='\<<C-r><C-w>\>' \| :set hlsearch<cr>
 nnoremap <silent> <expr> <cr> empty(&buftype) ? ':nohlsearch<cr>' : '<cr>'
 
 " Replace word under cursow
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Quick write session with F2, restore with F3
 map <F2> :mksession! .vim_session<cr>
