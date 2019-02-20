@@ -236,6 +236,9 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" "Zoom" current windwow, i.e. open in a new tab
+nnoremap <leader>z :tabe %<cr>
+
 " Open files in the same directory
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
 
