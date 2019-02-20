@@ -5,6 +5,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'wincent/pinnacle'
 Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
@@ -183,6 +184,9 @@ let python_highlight_all1=1
 
 " highlighted-yank
 let g:highlightedyank_highlight_duration=400
+
+" Nerdtree
+map <leader>n :NERDTreeToggle<CR>
 
 " ------------------------------------------------------------------------------
 "  Mappings
