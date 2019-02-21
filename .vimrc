@@ -12,12 +12,12 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired',
 Plug 'tpope/vim-surround',
+Plug 'jpalardy/vim-slime'
 "Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
 Plug 'w0rp/ale',                  {'on': []}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
 Plug 'hdima/python-syntax',       {'on': []}
-Plug 'zcesur/slimux',             {'on': []}
 Plug 'tpope/vim-fugitive',        {'on': []}
 Plug 'airblade/vim-gitgutter',    {'on': []}
 "Plug 'python-mode/python-mode'
@@ -31,7 +31,6 @@ augroup DeferredPlugins
     autocmd CursorHold,CursorHoldI * call plug#load('ale')
     autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
     autocmd CursorHold,CursorHoldI * call plug#load('python-syntax')
-    autocmd CursorHold,CursorHoldI * call plug#load('slimux')
     autocmd CursorHold,CursorHoldI * call plug#load('vim-fugitive')
     autocmd CursorHold,CursorHoldI * call plug#load('vim-gitgutter')
 augroup end
@@ -144,11 +143,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 
-" Slimux
-nnoremap <leader>r :SlimuxREPLSendLine<cr>
-vnoremap <leader>r :SlimuxREPLSendSelection<cr>
-nnoremap <leader>B :SlimuxREPLSendBuffer<cr>
-
 " ALE
 let g:ale_python_flake8_options='--ignore=E501'
 nmap [w <Plug>(ale_previous)
@@ -187,6 +181,25 @@ let g:highlightedyank_highlight_duration=400
 
 " Nerdtree
 map <leader>n :NERDTreeToggle<CR>
+
+" vim-slime
+if has('nvim')
+  let g:slime_target = "neovim"
+else
+  let g:slime_target = "vim-terminal"
+end
+let g:slime_dont_ask_default = 1
+let g:slime_no_mappings = 1
+
+function! SlimeReplPython() abort
+  vsplit | enew | call termopen('ipython')
+  execute 'normal!' . "\<c-w>p"
+  let b:slime_config = {"jobid": g:last_terminal_job_id}
+endfunction
+
+nnoremap <silent> <leader>R :call SlimeReplPython()<cr>
+xmap <silent> <leader>r <Plug>SlimeRegionSend
+nmap <silent> <leader>r <Plug>SlimeParagraphSend
 
 " ------------------------------------------------------------------------------
 "  Mappings
@@ -320,9 +333,12 @@ augroup vimrc
   " Autowrite
   autocmd FocusLost,WinLeave * :silent! noautocmd update
 
-  " fzf
+  " Fzf
   autocmd  FileType fzf tnoremap <buffer> <Esc> <Esc>
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+  " Keep track of last accessed terminal
+  autocmd BufLeave term://* let g:last_terminal_job_id = b:terminal_job_id
 augroup END
 
