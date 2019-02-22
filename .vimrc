@@ -190,16 +190,24 @@ else
 end
 let g:slime_dont_ask_default = 1
 let g:slime_no_mappings = 1
+let g:slime_python_ipython = 1
 
 function! SlimeReplPython() abort
   vsplit | enew | call termopen('ipython')
   execute 'normal!' . "\<c-w>p"
-  let b:slime_config = {"jobid": g:last_terminal_job_id}
 endfunction
 
 nnoremap <silent> <leader>R :call SlimeReplPython()<cr>
 xmap <silent> <leader>r <Plug>SlimeRegionSend
 nmap <silent> <leader>r <Plug>SlimeParagraphSend
+
+" Keep track of last accessed terminal for vim-slime
+let g:last_terminal_job_id = -1
+augroup vim-slime
+  autocmd!
+  autocmd BufLeave term://* let g:last_terminal_job_id = b:terminal_job_id
+  autocmd WinEnter,BufWinEnter * let b:slime_config = {"jobid": g:last_terminal_job_id}
+augroup END
 
 " ------------------------------------------------------------------------------
 "  Mappings
@@ -337,8 +345,5 @@ augroup vimrc
   autocmd  FileType fzf tnoremap <buffer> <Esc> <Esc>
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-  " Keep track of last accessed terminal
-  autocmd BufLeave term://* let g:last_terminal_job_id = b:terminal_job_id
 augroup END
 
