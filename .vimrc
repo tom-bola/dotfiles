@@ -254,6 +254,16 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+"Same thing from insert mode
+inoremap <C-h> <c-[><C-w>h
+inoremap <C-j> <c-[><C-w>j
+inoremap <C-k> <c-[><C-w>k
+inoremap <C-l> <c-[><C-w>l
+"Same thing from terminal mode
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
 
 " "Zoom" current windwow, i.e. open in a new tab
 nnoremap <leader>z :tabe %<cr>
