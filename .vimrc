@@ -243,9 +243,6 @@ noremap <silent> <leader>w<down>   :rightbelow new<cr>
 vnoremap <S-j> :m '>+1<cr>gv=gv
 vnoremap <S-k> :m '<-2<cr>gv=gv
 
-" Open/close fold
-nnoremap <S-tab> za
-
 " Avoid unintentionally entering Ex mode
 nmap Q q
 
