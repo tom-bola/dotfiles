@@ -13,6 +13,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired',
 Plug 'tpope/vim-surround',
 Plug 'jpalardy/vim-slime'
+Plug 'qpkorr/vim-bufkill'
 "Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
 Plug 'w0rp/ale',                  {'on': []}
@@ -271,8 +272,9 @@ vnoremap > >gv
 nnoremap <silent> <Tab> :bnext!<CR>
 nnoremap <silent> <S-Tab> :bprev!<CR>
 
-" Quick-close window/buffer
-nnoremap <leader>e :close<cr>
+" Delete buffer, leafing the split intact (using vim-bufkill)
+nnoremap <leader>e :BD<cr>
+" Delete the buffer, closing the spli
 nnoremap <leader>E :bdelete<cr>
 
 " Insert CWD in command line
