@@ -157,7 +157,11 @@ nnoremap <silent> <leader>l :Lines<cr>
 nnoremap <silent> <leader>, :History<cr>
 nnoremap <silent> <leader>c :Commits<cr>
 nnoremap <silent> <leader>; :Buffers<cr>
+" Search with ag
+" <leader>a   Opens the prompt to search
+" <leader>A   Opens the prompt to serach among the matches of <cword>
 nnoremap <silent> <leader>a :Ag<cr>
+nnoremap <silent> <leader>A :Ag <c-r><c-w><cr>
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
