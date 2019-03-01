@@ -259,12 +259,6 @@ inoremap <C-h> <c-[><C-w>h
 inoremap <C-j> <c-[><C-w>j
 inoremap <C-k> <c-[><C-w>k
 inoremap <C-l> <c-[><C-w>l
-"Same thing from terminal mode
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
-
 " "Zoom" current windwow, i.e. open in a new tab
 nnoremap <leader>z :tabe %<cr>
 
@@ -290,9 +284,29 @@ cnoremap %% <c-r>=fnameescape(expand('%:h')).'/'<cr>
 " Open vimrc in vertical split
 nnoremap <leader>V :80vsp ~/.vimrc<cr>
 
+" ------------------------------------------------------------------------------
+"  Terminal mappings
+" ------------------------------------------------------------------------------
+
 " Leave terminal mode with ESC
 tnoremap <Esc> <C-\><C-N>
 tnoremap <C-v><Esc> <Esc>
+
+"Navigate between windoes, even when in terminal mode
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+
+" Function that restores all terminal mappins
+" Can be used, e.g. for fzf which relies on the default mappings
+function! RestoreTerminalMappings()
+  tnoremap <buffer> <Esc> <Esc>
+  tnoremap <buffer> <C-j> <C-j>
+  tnoremap <buffer> <C-k> <C-k>
+  tnoremap <buffer> <C-h> <C-h>
+  tnoremap <buffer> <C-l> <C-l>
+endfunction
 
 " ------------------------------------------------------------------------------
 "  Functions
@@ -351,7 +365,7 @@ augroup vimrc
   autocmd FocusLost,WinLeave * :silent! noautocmd update
 
   " Fzf
-  autocmd  FileType fzf tnoremap <buffer> <Esc> <Esc>
+  autocmd  FileType fzf call RestoreTerminalMappings()
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
