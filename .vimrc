@@ -352,7 +352,8 @@ augroup vimrc
   autocmd BufWritePost .vimrc source %
 
   " Automatically remove trailing whitespace before saving
-  autocmd BufWritePre * %s/\s\+$//e
+  let blacklist = ['diff']
+  autocmd BufWritePre * if index(blacklist, &ft) < 0 | %s/\s\+$//e
 
   " Highlight current line in current window
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
