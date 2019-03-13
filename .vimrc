@@ -7,7 +7,7 @@ Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'wincent/pinnacle'
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired',
@@ -24,6 +24,7 @@ Plug 'airblade/vim-gitgutter',    {'on': []}
 "Plug 'python-mode/python-mode'
 "Plug 'qualiabyte/vim-colorstepper'
 "Plug 'flazz/vim-colorschemes'
+Plug 'crusoexia/vim-monokai'
 call plug#end()
 
 augroup DeferredPlugins
@@ -99,12 +100,12 @@ set updatetime=2000
 
 " Color scheme
 let g:airline_theme='minimalist'
-colors base16-tomorrow-night
+colors monokai
 if has('unix') && has('termguicolors')
   " Workaround for wrong/green colors on Linux. However, this messes up the background color. See
   " - https://github.com/chriskempson/base16-vim/issues/110
   " - https://github.com/chriskempson/base16-vim#green-line-numbers
-  set termguicolors
+  " set termguicolors
 endif
 
 " Use `ColorColumn` color for EndOfBuffer
