@@ -42,4 +42,7 @@ if [[ $(uname) = 'Darwin' ]]; then
   install_or_upgrade tmux
   install_or_upgrade tree
   install_or_upgrade zsh-completions
+
+  pip3 install -U neovim
+  pip3 install -U neovim-remote
 fi
