@@ -20,7 +20,7 @@ Plug 'w0rp/ale',                  {'on': []}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
 Plug 'hdima/python-syntax',       {'on': []}
 Plug 'tpope/vim-fugitive',        {'on': []}
-Plug 'airblade/vim-gitgutter',    {'on': []}
+Plug 'airblade/vim-gitgutter',
 "Plug 'python-mode/python-mode'
 "Plug 'qualiabyte/vim-colorstepper'
 "Plug 'flazz/vim-colorschemes'
@@ -34,7 +34,6 @@ augroup DeferredPlugins
     autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
     autocmd CursorHold,CursorHoldI * call plug#load('python-syntax')
     autocmd CursorHold,CursorHoldI * call plug#load('vim-fugitive')
-    autocmd CursorHold,CursorHoldI * call plug#load('vim-gitgutter')
 augroup end
 
 filetype plugin indent on
