@@ -1,4 +1,6 @@
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -d ~/.xclink/bin ] && PATH=~/.xclink/bin:$PATH
 
 # --------------------------------------------------------------------------------------------------
 # -- Preferred editor
