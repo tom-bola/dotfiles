@@ -2,3 +2,5 @@
 .vim/.netrwhist
 .vim/plugged
 .vim/undodir
+.tmux/plugins
+.tmux/resurrect

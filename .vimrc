@@ -19,7 +19,7 @@ Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-complet
 Plug 'w0rp/ale',                  {'on': []}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
 Plug 'hdima/python-syntax',       {'on': []}
-Plug 'tpope/vim-fugitive',        {'on': []}
+Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
 "Plug 'python-mode/python-mode'
 "Plug 'qualiabyte/vim-colorstepper'
@@ -33,7 +33,6 @@ augroup DeferredPlugins
     autocmd CursorHold,CursorHoldI * call plug#load('ale')
     autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
     autocmd CursorHold,CursorHoldI * call plug#load('python-syntax')
-    autocmd CursorHold,CursorHoldI * call plug#load('vim-fugitive')
 augroup end
 
 filetype plugin indent on
