@@ -1,4 +1,6 @@
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.custom_bash_aliases ] && source ~/.custom_bash_aliases
+[ -f ~/.conda_init.sh ] && source ~/.conda_init.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -d ~/.xclink/bin ] && PATH=~/.xclink/bin:$PATH
 
