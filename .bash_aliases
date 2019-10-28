@@ -8,6 +8,7 @@ alias gca='git commit -v --amend'
 alias gcm='git commit -v -m'
 alias gco='git checkout'
 alias gcob='git checkout -b'
+alias gcp='git cherry-pick'
 alias gd='git diff'
 alias gdel='git branch -D'
 alias gdp='git diff -p'
@@ -15,7 +16,7 @@ alias gds='git diff --staged'
 alias gf='git fetch --all --prune'
 alias gl="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
 alias gls="gl --stat"
-alias gm="git merge"
+alias gm="git merge --no-ff"
 alias gpl='git pull'
 alias gplr='git pull --rebase'
 alias gpop='git stash pop'
