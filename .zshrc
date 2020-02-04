@@ -1,9 +1,3 @@
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-[ -f ~/.custom_bash_aliases ] && source ~/.custom_bash_aliases
-[ -f ~/.conda_init.sh ] && source ~/.conda_init.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -d ~/.xclink/bin ] && PATH=~/.xclink/bin:$PATH
-
 # --------------------------------------------------------------------------------------------------
 # -- Preferred editor
 # --------------------------------------------------------------------------------------------------
@@ -188,3 +182,13 @@ function () {
 #RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 #export RPROMPT=$RPROMPT_BASE
 #export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+
+# --------------------------------------------------------------------------------------------------
+# -- Source additional files
+# --------------------------------------------------------------------------------------------------
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.custom_bash_aliases ] && source ~/.custom_bash_aliases
+[ -f ~/.conda_init.sh ] && source ~/.conda_init.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -d ~/.xclink/bin ] && PATH=~/.xclink/bin:$PATH
+
