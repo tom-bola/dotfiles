@@ -77,6 +77,14 @@ case $TERM in
     ;;
 esac
 
+# Remove forward-char widgets from ACCEPT
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=("${(@)ZSH_AUTOSUGGEST_ACCEPT_WIDGETS:#forward-char}")
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=("${(@)ZSH_AUTOSUGGEST_ACCEPT_WIDGETS:#vi-forward-char}")
+
+# Add forward-char widgets to PARTIAL_ACCEPT
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-char)
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(vi-forward-char)
+
 # --------------------------------------------------------------------------------------------------
 # -- Prompt
 # --------------------------------------------------------------------------------------------------
