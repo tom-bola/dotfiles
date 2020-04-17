@@ -14,7 +14,8 @@ alias gdel='git branch -D'
 alias gdp='git diff -p'
 alias gds='git diff --staged'
 alias gf='git fetch --all --prune'
-alias gl="git log --first-parent --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias gl='git log --first-parent --graph --pretty=format:"%C(bold)%h%Creset %<(80,trunc)%s %C(yellow)<%an> %C(cyan)(%cr)%Creset %C(magenta)%d%Creset" --abbrev-commit --date=relative'
+alias gg='gl -10'
 alias gls="gl --stat"
 alias gm="git merge --no-ff"
 alias gpl='git pull'
@@ -28,6 +29,7 @@ alias grc='git rebase --continue'
 alias grh='git reset HEAD'
 alias gs='git status'
 alias gss='git status -s'
+alias gsh='git show HEAD'
 alias gstash='git stash'
 alias gsu='git status -uno'
 alias gsubu='git submodule update --recursive'
