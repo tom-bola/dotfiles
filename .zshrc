@@ -99,7 +99,7 @@ function vi_mode_prompt() {
 }
 
 function rprompt() {
-  echo "$(vi_mode_prompt)%~"
+  echo "$(vi_mode_prompt)"
 }
 
 function zle-line-init zle-keymap-select {
