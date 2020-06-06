@@ -10,8 +10,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-unimpaired',
 Plug 'jpalardy/vim-slime'
 Plug 'qpkorr/vim-bufkill'
-Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
-Plug 'w0rp/ale',                  {'on': []}
+Plug 'neoclide/coc.nvim',         {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
 Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
@@ -20,8 +19,6 @@ call plug#end()
 
 augroup DeferredPlugins
     autocmd!
-    autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe')
-    autocmd CursorHold,CursorHoldI * call plug#load('ale')
     autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
 augroup end
 
@@ -133,10 +130,23 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 
-" ALE
-let g:ale_python_flake8_options='--ignore=E501'
-nmap [w <Plug>(ale_previous)
-nmap ]w <Plug>(ale_next)
+" COC
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " fzf
 " See https://github.com/junegunn/fzf.vim#global-options
@@ -157,15 +167,6 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-" YCM
-let g:ycm_python_binary_path='python'
-let g:ycm_max_num_candidates=20
-let g:ycm_auto_trigger=1
-let g:ycm_complete_in_comments=0
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-let g:ycm_always_populate_location_list = 1
-nnoremap <silent> <leader>d :YcmCompleter GetDoc<cr>
-nnoremap <silent> <leader>g :YcmCompleter GoTo<cr>
 
 " highlighted-yank
 let g:highlightedyank_highlight_duration=400
