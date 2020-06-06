@@ -14,7 +14,8 @@ Plug 'neoclide/coc.nvim',         {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
 Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
-Plug 'crusoexia/vim-monokai'
+"Plug 'crusoexia/vim-monokai'
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 augroup DeferredPlugins
@@ -85,7 +86,7 @@ set updatetime=2000
 
 
 " Color scheme
-colors monokai
+colors gruvbox
 if has('unix') && has('termguicolors')
   " Workaround for wrong/green colors on Linux. However, this messes up the background color. See
   " - https://github.com/chriskempson/base16-vim/issues/110
