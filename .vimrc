@@ -1,8 +1,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
@@ -96,8 +95,8 @@ set ttimeoutlen=0
 " Time until CursorHold/CursorHoldI events
 set updatetime=2000
 
+
 " Color scheme
-let g:airline_theme='minimalist'
 colors monokai
 if has('unix') && has('termguicolors')
   " Workaround for wrong/green colors on Linux. However, this messes up the background color. See
