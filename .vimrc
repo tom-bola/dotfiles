@@ -8,6 +8,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'wincent/pinnacle'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-unimpaired',
+Plug 'psliwka/vim-smoothie'
 Plug 'jpalardy/vim-slime'
 Plug 'qpkorr/vim-bufkill'
 Plug 'neoclide/coc.nvim',         {'branch': 'release'}
