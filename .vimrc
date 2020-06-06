@@ -6,23 +6,15 @@ Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'wincent/pinnacle'
-"Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired',
-Plug 'tpope/vim-surround',
 Plug 'jpalardy/vim-slime'
 Plug 'qpkorr/vim-bufkill'
-"Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
 Plug 'w0rp/ale',                  {'on': []}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
-Plug 'hdima/python-syntax',       {'on': []}
 Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
-"Plug 'python-mode/python-mode'
-"Plug 'qualiabyte/vim-colorstepper'
-"Plug 'flazz/vim-colorschemes'
 Plug 'crusoexia/vim-monokai'
 call plug#end()
 
@@ -31,7 +23,6 @@ augroup DeferredPlugins
     autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe')
     autocmd CursorHold,CursorHoldI * call plug#load('ale')
     autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
-    autocmd CursorHold,CursorHoldI * call plug#load('python-syntax')
 augroup end
 
 filetype plugin indent on
@@ -175,9 +166,6 @@ let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_always_populate_location_list = 1
 nnoremap <silent> <leader>d :YcmCompleter GetDoc<cr>
 nnoremap <silent> <leader>g :YcmCompleter GoTo<cr>
-
-" python-syntax
-let python_highlight_all1=1
 
 " highlighted-yank
 let g:highlightedyank_highlight_duration=400
