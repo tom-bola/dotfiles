@@ -64,7 +64,7 @@ nnoremap <space> <nop>
 
 " Enable line numbers
 set number
-" set relativenumber
+set relativenumber
 
 " Search options
 set hlsearch
