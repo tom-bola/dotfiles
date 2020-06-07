@@ -13,8 +13,6 @@ fi
 # --------------------------------------------------------------------------------------------------
 export KEYTIMEOUT=1                                         # Reduce latency when changing mode
 
-[[ -d "$HOME/miniconda3" ]] && export PATH="$HOME/miniconda3/bin:$PATH"
-
 # --------------------------------------------------------------------------------------------------
 # -- Settings
 # - http://zsh.sourceforge.net/Guide/zshguide02.html
@@ -199,4 +197,10 @@ function () {
 [ -f ~/.conda_init.sh ] && source ~/.conda_init.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -d ~/.xclink/bin ] && PATH=~/.xclink/bin:$PATH
+
+# See https://github.com/conda/conda/issues/9392
+unset CONDA_SHLVL
+
+# >>> conda initialize >>>
+# <<< conda initialize <<<
 
