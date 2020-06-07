@@ -100,6 +100,13 @@ let eob_color=pinnacle#extract_bg('ColorColumn')
 let eob_highlight=pinnacle#highlight({'bg': eob_color, 'fg': eob_color})
 execute 'highlight EndOfBuffer ' . eob_highlight
 
+" Use '|' for split bar,
+set fillchars+=vert:\|
+execute 'highlight VertSplit ctermbg=' . eob_color
+
+" Use the same color for 'LineNr' highlight, blending it with the background
+execute 'highlight LineNr ctermbg=' . eob_color
+
 " Tab settings
 set expandtab
 set shiftwidth=2
