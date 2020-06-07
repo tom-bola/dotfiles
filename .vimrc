@@ -1,38 +1,28 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf',              {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'wincent/pinnacle'
-"Plug 'chriskempson/base16-vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-unimpaired',
-Plug 'tpope/vim-surround',
+Plug 'psliwka/vim-smoothie'
 Plug 'jpalardy/vim-slime'
 Plug 'qpkorr/vim-bufkill'
-"Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe',    {'on': [], 'do': './install.py --clang-completer'}
-Plug 'w0rp/ale',                  {'on': []}
+Plug 'neoclide/coc.nvim',         {'branch': 'release'}
 Plug 'scrooloose/nerdcommenter',  {'on': []}
-Plug 'hdima/python-syntax',       {'on': []}
 Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
-"Plug 'python-mode/python-mode'
-"Plug 'qualiabyte/vim-colorstepper'
-"Plug 'flazz/vim-colorschemes'
-Plug 'crusoexia/vim-monokai'
+"Plug 'crusoexia/vim-monokai'
+Plug 'gruvbox-community/gruvbox'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 augroup DeferredPlugins
     autocmd!
-    autocmd CursorHold,CursorHoldI * call plug#load('YouCompleteMe')
-    autocmd CursorHold,CursorHoldI * call plug#load('ale')
     autocmd CursorHold,CursorHoldI * call plug#load('nerdcommenter')
-    autocmd CursorHold,CursorHoldI * call plug#load('python-syntax')
 augroup end
 
 filetype plugin indent on
@@ -47,14 +37,13 @@ set hidden
 
 " Use the clipboard register '*' by default
 set clipboard=unnamed
-
 " Wrap settings
 set nowrap
 set breakindent
 set breakindentopt=shift:2
 
-" Default fold level
-set foldlevel=2
+" Disable folding
+set nofoldenable
 
 " Default textwidth
 set tw=100  " Default textwidth
@@ -75,7 +64,7 @@ nnoremap <space> <nop>
 
 " Enable line numbers
 set number
-" set relativenumber
+set relativenumber
 
 " Search options
 set hlsearch
@@ -96,9 +85,9 @@ set ttimeoutlen=0
 " Time until CursorHold/CursorHoldI events
 set updatetime=2000
 
+
 " Color scheme
-let g:airline_theme='minimalist'
-colors monokai
+colors gruvbox
 if has('unix') && has('termguicolors')
   " Workaround for wrong/green colors on Linux. However, this messes up the background color. See
   " - https://github.com/chriskempson/base16-vim/issues/110
@@ -143,10 +132,23 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 
-" ALE
-let g:ale_python_flake8_options='--ignore=E501'
-nmap [w <Plug>(ale_previous)
-nmap ]w <Plug>(ale_next)
+" COC
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " fzf
 " See https://github.com/junegunn/fzf.vim#global-options
@@ -167,18 +169,6 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-" YCM
-let g:ycm_python_binary_path='python'
-let g:ycm_max_num_candidates=20
-let g:ycm_auto_trigger=1
-let g:ycm_complete_in_comments=0
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-let g:ycm_always_populate_location_list = 1
-nnoremap <silent> <leader>d :YcmCompleter GetDoc<cr>
-nnoremap <silent> <leader>g :YcmCompleter GoTo<cr>
-
-" python-syntax
-let python_highlight_all1=1
 
 " highlighted-yank
 let g:highlightedyank_highlight_duration=400
@@ -273,8 +263,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Use Tab to navigate buffers (in normal mode tab doesn't do anything)
-nnoremap <silent> <Tab> :bnext!<CR>
-nnoremap <silent> <S-Tab> :bprev!<CR>
+"nnoremap <silent> <Tab> :bnext!<CR>
+"nnoremap <silent> <S-Tab> :bprev!<CR>
 
 " Delete buffer, leafing the split intact (using vim-bufkill)
 nnoremap <leader>e :BD<cr>
