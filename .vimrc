@@ -263,8 +263,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Use Tab to navigate buffers (in normal mode tab doesn't do anything)
-nnoremap <silent> <Tab> :bnext!<CR>
-nnoremap <silent> <S-Tab> :bprev!<CR>
+"nnoremap <silent> <Tab> :bnext!<CR>
+"nnoremap <silent> <S-Tab> :bprev!<CR>
 
 " Delete buffer, leafing the split intact (using vim-bufkill)
 nnoremap <leader>e :BD<cr>
