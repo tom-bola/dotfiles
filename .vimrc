@@ -269,9 +269,12 @@ cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-" Use Tab to navigate buffers (in normal mode tab doesn't do anything)
-"nnoremap <silent> <Tab> :bnext!<CR>
-"nnoremap <silent> <S-Tab> :bprev!<CR>
+" Use \, | to navigate buffers
+function! PrintBuf() abort
+  echo "Buffer [" . bufnr() . "/" . bufnr("$") . "] " . bufname()
+endfunction
+nnoremap <silent> <Bslash> :bnext! <CR> \| :call PrintBuf()<CR>
+nnoremap <silent> \| :bprev! <CR> \| :call PrintBuf()<CR>
 
 " Delete buffer, leafing the split intact (using vim-bufkill)
 nnoremap <leader>e :BD<cr>
