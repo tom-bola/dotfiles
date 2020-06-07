@@ -37,14 +37,13 @@ set hidden
 
 " Use the clipboard register '*' by default
 set clipboard=unnamed
-
 " Wrap settings
 set nowrap
 set breakindent
 set breakindentopt=shift:2
 
-" Default fold level
-set foldlevel=2
+" Disable folding
+set nofoldenable
 
 " Default textwidth
 set tw=100  " Default textwidth
