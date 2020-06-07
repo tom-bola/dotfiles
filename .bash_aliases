@@ -15,6 +15,7 @@ alias gdp='git diff -p'
 alias gds='git diff --staged'
 alias gf='git fetch --all --prune'
 alias gl="git log --first-parent --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias gg='gl -n 10'
 alias gls="gl --stat"
 alias gm="git merge --no-ff"
 alias gpl='git pull'
