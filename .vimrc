@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive',
 Plug 'airblade/vim-gitgutter',
 "Plug 'crusoexia/vim-monokai'
 Plug 'gruvbox-community/gruvbox'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 augroup DeferredPlugins
