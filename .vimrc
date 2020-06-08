@@ -142,6 +142,7 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 " COC
 nmap <silent> [w <Plug>(coc-diagnostic-prev)
 nmap <silent> ]w <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
