@@ -177,7 +177,6 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-
 " highlighted-yank
 let g:highlightedyank_highlight_duration=400
 
@@ -277,10 +276,11 @@ endfunction
 nnoremap <silent> <Bslash> :bnext! <CR> \| :call PrintBuf()<CR>
 nnoremap <silent> \| :bprev! <CR> \| :call PrintBuf()<CR>
 
-" Delete buffer, leafing the split intact (using vim-bufkill)
+" Shorthand for :q
+nnoremap <leader>q :q<cr>
+
+" Delete buffer, leaving the split intact
 nnoremap <leader>e :BD<cr>
-" Delete the buffer, closing the spli
-nnoremap <leader>E :bdelete<cr>
 
 " Insert CWD in command line
 cnoremap %% <c-r>=fnameescape(expand('%:h')).'/'<cr>
