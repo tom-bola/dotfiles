@@ -329,6 +329,7 @@ com! DiffSaved call s:DiffWithSaved()
 " Helper for python debugging
 func! s:SetBreakpoint()
     cal append(line('.')-1, repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import ipdb; ipdb.set_trace()')
+    normal! k
 endf
 
 func! s:RemoveBreakpoint()
