@@ -182,7 +182,7 @@ command! -bang -nargs=* Ag
 let g:highlightedyank_highlight_duration=400
 
 " Nerdtree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
 
 " vim-slime
 if has('nvim')
