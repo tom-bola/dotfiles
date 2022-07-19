@@ -16,13 +16,6 @@ grep -q '~/.bash_aliases' ~/.bashrc || \
 
 if [[ $(uname) = 'Darwin' ]]; then
 
-  # Install homebrew
-  if [[ -f '/usr/local/bin/brew' ]]; then
-    brew update
-  else
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-
   # Helper that either upgrades or installs a keg
   vv=$(brew ls --versions)
   function install_or_upgrade {
