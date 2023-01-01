@@ -1,2 +1,2 @@
-setlocal tw=72
+setlocal tw=60
 setlocal wrap
